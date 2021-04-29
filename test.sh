@@ -33,7 +33,8 @@ delete_stack(){
 }
 
 check_containers(){
- docker ps -f name=$StackId -q
+  echo "stackid" $StackId
+  docker ps -f name=$StackId -q
   containers=$(docker ps -f name=$StackId -q | sed 's/.*: //' | wc -l)
   while [ $containers -ge 2 ]
     do
