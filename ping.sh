@@ -1,4 +1,3 @@
-password="Puavep*13033**"
-echo "ping ping"
+echo "ping ping2"
 whoami
 sudo docker ps
