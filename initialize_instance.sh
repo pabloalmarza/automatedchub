@@ -22,7 +22,6 @@ done
   sudo systemctl daemon-reload
   sudo systemctl start docker
   sudo yum -y install git
-  sleep 15
   sudo git clone https://github.com/blackducksoftware/hub.git /home/hub -b $HUB_VERSION
   sudo git clone https://github.com/blackducksoftware/blackduck-alert.git -b $ALERT_VERSION /home/alert
   sudo sed -i  s/SE_ALERT=0/USE_ALERT=1/ /home/hub/docker-swarm/hub-webserver.env
