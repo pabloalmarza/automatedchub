@@ -2,11 +2,11 @@
 do
     case $arg in
         -v=*|--version=*)
-        HUB_VERSION="release/${arg#*=}"
+        HUB_VERSION="${arg#*=}"
         shift # Remove --cache= from processing
         ;;
         -a=*|--alert=*)
-        ALERT_VERSION="release/${arg#*=}"
+        ALERT_VERSION="${arg#*=}"
         ;;
     esac
 done
