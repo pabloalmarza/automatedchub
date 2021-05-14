@@ -32,5 +32,5 @@ done
   sudo cp /home/alert/deployment/blackduck-alert.env /home/hub/docker-swarm
   sudo cp /home/alert/deployment/docker-swarm/docker-compose.local-overrides.yml /home/hub/docker-swarm/docker-compose.local-overrides.alert.yml
   sudo cp /home/alert/deployment/docker-swarm/hub/docker-compose.yml /home/hub/docker-swarm/docker-compose.alert.yml
-  docker swarm init
+  sudo docker swarm init
   sudo docker stack deploy -c /home/hub/docker-swarm/docker-compose.yml -c /home/hub/docker-swarm/docker-compose.alert.yml -c /home/hub/docker-swarm/docker-compose.local-overrides.alert.yml hub
