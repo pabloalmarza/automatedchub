@@ -1,3 +1,16 @@
+  for arg in "$@"
+do
+    case $arg in
+        -v=*|--version=*)
+        HUB_VERSION="release/${arg#*=}"
+        shift # Remove --cache= from processing
+        ;;
+        -a=*|--alert=*)
+        ALERT_VERSION="release/${arg#*=}"
+        ;;
+    esac
+done
+  
   sudo mkfs -t xfs /dev/nvme1n1
   sudo mkdir /data
   sudo mount /dev/nvme1n1 /data
