@@ -34,4 +34,3 @@ done
   sudo cp /home/alert/deployment/docker-swarm/hub/docker-compose.yml /home/hub/docker-swarm/docker-compose.alert.yml
   docker swarm init
   sudo docker stack deploy -c /home/hub/docker-swarm/docker-compose.yml -c /home/hub/docker-swarm/docker-compose.alert.yml -c /home/hub/docker-swarm/docker-compose.local-overrides.alert.yml hub
-  echo "log into ec2-user@"$(aws ec2 describe-instances --instance-ids $instanceid | jq .Reservations[].Instances[].PublicDnsName | sed -e 's/^"//' -e 's/"$//') "to review hub status"
