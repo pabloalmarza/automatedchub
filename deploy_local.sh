@@ -82,8 +82,6 @@ if [ "$NAME" != "1" ]
 then
   INSTANCE_NAME="hub"
 fi
-echo "CREATE $CREATE"
-echo "CREATE_ALERT $CREATE_ALERT"
 
 if [ "$CREATE" == "1" ] && [ "$CREATE_ALERT" != "1" ]
 then
