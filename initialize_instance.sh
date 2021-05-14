@@ -15,7 +15,7 @@ done
   sudo mkdir /data
   sudo mount /dev/nvme1n1 /data
   sudo yum install -y yum-utils
-  sudo amazon-linux-extras -y install docker
+  sudo amazon-linux-extras install docker -y
   sudo systemctl start docker
   sudo sed -i  s/dockerd/dockerd\ -g\ /data/docker/ /lib/systemd/system/docker.service
   sudo systemctl stop docker
