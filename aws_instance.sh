@@ -85,7 +85,7 @@ check_instance_readiness () {
 }
 
 initialize_instance (){
-  aws ssm send-command --instance-ids $1 --document-name "AWS-RunShellScript" --parameters commands="sudo wget https://raw.githubusercontent.com/pabloalmarza/automatedchub/main/initialize_instance.sh -O /tmp/initialize_instance.sh" | grep null
+  aws ssm send-command --instance-ids $1 --document-name "AWS-RunShellScript" --parameters commands="sudo wget https://raw.githubusercontent.com/pabloalmarza/automatedchub/main/initialize_aws_instance.sh -O /tmp/initialize_instance.sh" | grep null
   aws ssm send-command --instance-ids $1 --document-name "AWS-RunShellScript" --parameters commands="sudo chmod 777 /tmp/initialize_instance.sh" | grep null
   aws ssm send-command --instance-ids $1 --document-name "AWS-RunShellScript" --parameters commands="/tmp/initialize_instance.sh -a=$ALERT_VERSION -v=$HUB_VERSION" | grep null
 
