@@ -13,7 +13,8 @@ sudo mkdir /home/certs
 cd /home/certs
 sudo openssl req -newkey rsa:2048 -nodes -keyout key.pem -x509 -days 365 -out certificate.pem -subj "/C=GB/ST=London/L=London/O=Global Security/OU=IT Department/CN=example.com"
 sudo chown ubuntu:ubuntu -R /home/certs
-cd /home/synopsysctl
-./synopsysctl create blackduck native hub -n hub --version 2021.2.0 --expose-ui LOADBALANCER --admin-password blackduck --user-password blackduck --seal-key blackduckblackduckblackduckblack --certificate-file-path /home/certs/certificate.pem --certificate-key-file-path /home/certs/key.pem > /home/yaml/blackduck.yaml
 kubectl create ns hub
-kubectl create -f /home/yaml/blackduck.yaml
+kubectl create secret generic hub-blackduck-webserver-certificate -n hub --from-file=WEBSERVER_CUSTOM_CERT_FILE=/home/certs/certificate.pem --from-file=WEBSERVER_CUSTOM_KEY_FILE=/home/certs/key.pem
+git clone https://github.com/blackducksoftware/hub.git /home/hub
+cd /home/hub/
+helm install hub . --namespace hub --set enablePersistentStorage=true --set postgres.isExternal=false --set sealKey=blackduckblackduckblackduckblack --set exposeui=true -set exposedServiceType=LoadBalancer --set enableSourceCodeUpload=true --set enableBinaryScanner=true --set tlsCertSecretName=hub-blackduck-webserver-certificate --set postgres.adminPassword=blackduck --set postgres.userUserName=blackduck_user --set postgres.userPassword=blackduck -f small.yaml
