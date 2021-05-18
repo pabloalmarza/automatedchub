@@ -46,3 +46,11 @@ if running initialize_aws_instance.sh individually
 | --------- | ----------- | ------- |
 | `--version, -v` | Blackduck Version to install | `null` |
 | `--alert-version, -a` | Blackduck Alert version to install | `null` |
+
+## Deploy K8 cluster using kops
+
+
+
+## Deploy BD using helm
+
+initialize_kops_cluster.sh will install the necesary elements and deploy a blackduck server on a K8 cluster deployed using kops 
