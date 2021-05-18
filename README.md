@@ -49,8 +49,11 @@ if running initialize_aws_instance.sh individually
 
 ## Deploy K8 cluster using kops
 
+Required kops: https://kops.sigs.k8s.io/getting_started/install/
+Requires the use of AWS CLI https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html and having CLI keys to operate AWS resources.
+Requires creating an S3 bucket
+Additional docs: https://kubernetes.io/docs/setup/production-environment/tools/kops/
 
-
-## Deploy BD using helm
+## Deploy BD using helm on a K8 cluster
 
 initialize_kops_cluster.sh will install the necesary elements and deploy a blackduck server on a K8 cluster deployed using kops 
