@@ -17,3 +17,39 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+- task: SynopsysDetectTask@6
+  inputs:
+    BlackDuckService: 'blackduck1'
+    DetectVersion: 'latest'
+    DetectArguments: |
+      --detect.project.name=test
+      --detect.project.version.name=test-version1
+      --detect.project.version.phase=DEVELOPMENT
+      --detect.project.version.distribution=EXTERNAL
+      --detect.project.codelocation.unmap=true
+      --detect.parent.project.name=parent
+      --detect.parent.project.version.name=parent-version1
+      --detect.clone.project.version.name=test-base
+      --detect.code.location.name=test-version1-scan
+      --detect.wait.for.results=true
+      --detect.output.path=$(Build.ArtifactStagingDirectory)\blackduck
+      --detect.tools.output.path=$(Agent.ToolsDirectory)\blackduck
+      --detect.source.path=$(Build.SourcesDirectory)
+      --detect.tools=DETECTOR,SIGNATURE_SCAN
+      --detect.nuget.config.path=$(NugetConfig)
+      --detect.nuget.excluded.modules=Tests
+      --detect.diagnostic.extended=true
+      --detect.detector.search.continue=false
+      --detect.detector.search.depth=0
+      --detect.excluded.directories.defaults.disabled=true
+      --detect.required.detector.types=NUGET
+      --detect.included.detector.types=NUGET
+      --detect.blackduck.signature.scanner.license.search=false
+      --detect.blackduck.signature.scanner.copyright.search=false
+      --detect.blackduck.signature.scanner.snippet.matching=NONE
+      --detect.blackduck.signature.scanner.paths=${{parameters.ScanPath}}
+      --detect.blackduck.signature.scanner.arguments='--exclude /Tests/'
+      --detect.cleanup=true
+      --logging.level.detect=TRACE
+      --detect.parallel.processors=0
+      --detect.timeout=1800
