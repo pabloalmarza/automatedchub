@@ -45,6 +45,7 @@ steps:
       --detect.blackduck.signature.scanner.snippet.matching=NONE
       --detect.blackduck.signature.scanner.arguments='--exclude /Tests/'
       --detect.cleanup=true
+      --blackduck.trust.cert=true
       --logging.level.detect=TRACE
       --detect.parallel.processors=0
       --detect.timeout=1800
