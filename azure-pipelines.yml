@@ -24,7 +24,7 @@ steps:
     DetectArguments: |
       --detect.project.name=test
       --detect.project.version.name=test-version1
-      --detect.tools=DETECTOR,SIGNATURE_SCAN
+      --detect.tools='DETECTOR,SIGNATURE_SCAN'
       --detect.cleanup=true
       --blackduck.trust.cert=true
       --logging.level.detect=TRACE
