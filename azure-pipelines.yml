@@ -32,11 +32,7 @@ steps:
       --detect.clone.project.version.name=test-base
       --detect.code.location.name=test-version1-scan
       --detect.wait.for.results=true
-      --detect.output.path=$(Build.ArtifactStagingDirectory)\blackduck
-      --detect.tools.output.path=$(Agent.ToolsDirectory)\blackduck
-      --detect.source.path=$(Build.SourcesDirectory)
       --detect.tools=DETECTOR,SIGNATURE_SCAN
-      --detect.nuget.config.path=$(NugetConfig)
       --detect.nuget.excluded.modules=Tests
       --detect.diagnostic.extended=true
       --detect.detector.search.continue=false
@@ -47,7 +43,6 @@ steps:
       --detect.blackduck.signature.scanner.license.search=false
       --detect.blackduck.signature.scanner.copyright.search=false
       --detect.blackduck.signature.scanner.snippet.matching=NONE
-      --detect.blackduck.signature.scanner.paths=${{parameters.ScanPath}}
       --detect.blackduck.signature.scanner.arguments='--exclude /Tests/'
       --detect.cleanup=true
       --logging.level.detect=TRACE
