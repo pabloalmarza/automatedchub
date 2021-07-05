@@ -19,7 +19,7 @@ steps:
   displayName: 'Run a multi-line script'
 - task: SynopsysDetectTask@6
   inputs:
-    BlackDuckService: 'blackduck1'
+    BlackDuckService: 'bd_aws'
     DetectVersion: 'latest'
     DetectArguments: |
       --detect.project.name=test
