@@ -13,18 +13,3 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
-- task: SynopsysDetectTask@6
-  inputs:
-    BlackDuckService: 'bd_aws'
-    DetectVersion: 'latest'
-    DetectArguments: |
-      --detect.project.name=test
-      --detect.project.version.name=test-version1
-      --detect.tools='DETECTOR,SIGNATURE_SCAN'
-      --detect.cleanup=true
-      --blackduck.trust.cert=true
-      --logging.level.detect=TRACE
