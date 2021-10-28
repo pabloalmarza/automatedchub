@@ -7,9 +7,10 @@ trigger:
 - main
 
 pool:
-  vmImage: windows-latest
+  vmImage: vs2017-win2016
 
-steps:
-- script: nuget help v
-  displayName: 'Run a one-line script'
+- task: SynopsysDetectTask@7
+  inputs:
+    BlackDuckService: 'bd_aws'
+    DetectVersion: 'latest'
 
