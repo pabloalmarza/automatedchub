@@ -2,10 +2,10 @@ name: Example Workflow
 on:
   pull_request:
     branches:
-      - main
+      - main-1
   schedule:
     - cron:  '0 0 * * *'
-    jobs:
+jobs:
   security:
     runs-on: my-github-runner
     steps:
