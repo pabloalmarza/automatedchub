@@ -1,0 +1,12 @@
+[ req ]
+default_bits        = 2048
+distinguished_name  = req_distinguished_name
+req_extensions      = san
+extensions          = san
+[ req_distinguished_name ]
+countryName         = US
+stateOrProvinceName = Massachusetts
+localityName        = Boston
+organizationName    = MyCompany
+[ san ]
+subjectAltName      = DNS:dev.mycompany.com
