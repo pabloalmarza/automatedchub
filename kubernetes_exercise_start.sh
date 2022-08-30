@@ -8,3 +8,4 @@ sudo git clone https://github.com/pabloalmarza/kubernetes-hub-exercises.git /hom
 chown -R ubuntu:ubuntu /home/exercises
 git clone https://github.com/blackducksoftware/hub.git -b v2022.7.0 /home/hub
 sudo chown -R ubuntu:ubuntu /home/hub
+sudo chmod 400 /home/hub/certs/kube_controller.pem > /dev/null 2>&1
